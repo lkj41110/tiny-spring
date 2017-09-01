@@ -21,6 +21,7 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 		}
 		for (PropertyValue propertyValue : mbd.getPropertyValues().getPropertyValues()) {
 			Object value = propertyValue.getValue();
+			//注入其他的bean
 			if (value instanceof BeanReference) {
 				BeanReference beanReference = (BeanReference) value;
 				value = getBean(beanReference.getName());
